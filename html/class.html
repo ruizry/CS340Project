@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<h1>Class Data</h1>
+		<h3>Add, delete or update Class data.</h3>
+		
+		<form method="post" action=""> <!-- Change later-->
+			
+			<fieldset>
+				<legend>Gym Location</legend>
+				<select>
+					<!-- Will change later -->
+					<option value="1">Bellevue, WA</option>
+					<option value="2">Kirkland, WA</option>
+					<option value="3">Renton, WA</option>
+				</select>
+			</fieldset>
+			
+			<fieldset>
+				<legend>Class Info</legend>
+				<p><input type="text" name="CName">Name</p>
+				<p><input type="text" name="CDayOfWeek">Day Offered</p>
+				<p><input type="text" name="CTime">Class Time</p>
+				<p><input type="number" name="CDuration">Duration</p>
+				
+				
+			</fieldset>
+			
+			
+			<fieldset>
+				<legend>Instructor First Name, Last Name</legend>
+				<select>
+					<!-- Will change later -->
+					<option value="1">Ronald</option>
+					<option value="3">Edward</option>
+					<option value="5">Frank</option>
+				</select>
+				
+				<select>
+					<!-- Will change later
+						Seems like it will need a lot of flow of control statements to only show possible 
+						last names after selecting first name.  We will see if this is hard once we hit PHP code.
+						OR we can combine First & last name in a single drop down to make this easier?
+					 -->
+					<option value="1">Blake</option>
+					<option value="3">Edward</option>
+					<option value="5">Frank</option>
+				</select>
+			</fieldset>
+			<input type="submit" name="Add" value="Add Class Data">
+			<input type="submit" name="update" value="Update Class Data">
+			<input type="submit" name="delete" value="Delete Class Data">
+		</form>
+		
+		</br>
+		<p><a href="index.html">Home</a></p>
+	</body>
+</html>

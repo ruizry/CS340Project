@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>Employee Data</h1>
+		<h3>Add, delete or update Employee data.</h3>
+		
+		<form method="post" action=""> <!-- Change later-->
+			
+			<fieldset>
+				<legend>Employee Name</legend>
+				<p>First Name: <input type="text" name="FName"></p>
+				<p>Last Name: <input type="text" name="LName"></p>
+			</fieldset>
+			
+			<!-- For this to work, might need to move some values to employee table rather than relationship table 
+				Cannot make a new entry in employee AND update relationship in one line.  The employee ID has to be 
+				generated first, then can add to the relationship.
+			-->
+			<fieldset>
+				<legend>Position</legend>
+				<p>Position: <input type="text" name="Position"></p>
+			</fieldset>
+			<input type="submit" name="Add" value="Add Employee Data">
+			<input type="submit" name="update" value="Update Employee Data">
+			<input type="submit" name="delete" value="Delete Employee Data">
+		</form>
+		
+		</br>
+		<p><a href="index.html">Home</a></p>
+	</body>
+</html>
