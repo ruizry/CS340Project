@@ -52,20 +52,21 @@ $stmt->close();
 				<th>Last Name</th>
 				<th>Position</th>
 				<th>Location</th>
+				<th>Start Date</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position, gym.locationName FROM employee_tbl INNER JOIN isEmployee ON employee_tbl.empid=isEmployee.eid INNER JOIN gym ON gym.gymid=isEmployee.gid"))){
+if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position, gym.locationName, isEmployee.startdate FROM employee_tbl INNER JOIN isEmployee ON employee_tbl.empid=isEmployee.eid INNER JOIN gym ON gym.gymid=isEmployee.gid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
-if(!$stmt->bind_result($id, $fname, $lname, $pos, $loc)){
+if(!$stmt->bind_result($id, $fname, $lname, $pos, $loc, $start)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
- echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $pos . "\n</td>\n<td>\n" . $loc . "\n</td>\n</tr>";
+ echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $pos . "\n</td>\n<td>\n" . $loc . "\n</td>\n<td>\n" . $start . "\n</td>\n</tr>";
 }
 $stmt->close();
 ?>
@@ -114,22 +115,23 @@ $stmt->close();
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
+				<th>Location</th>
 				<th>Start Date</th>
 				<th>Membership Status</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT member_tbl.memberid, member_tbl.fname, member_tbl.lname, isMember.startdate, isMember.activeMember FROM member_tbl INNER JOIN isMember ON member_tbl.memberid=isMember.mid"))){
+if(!($stmt = $mysqli->prepare("SELECT member_tbl.memberid, member_tbl.fname, member_tbl.lname, gym.locationName, isMember.startdate, isMember.activeMember FROM member_tbl INNER JOIN isMember ON member_tbl.memberid=isMember.mid INNER JOIN gym ON isMember.gid=gym.gymid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
-if(!$stmt->bind_result($id, $fname, $lname, $start, $status)){
+if(!$stmt->bind_result($id, $fname, $lname, $loc, $start, $status)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
- echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $start . "\n</td>\n<td>\n" . $status . "\n</td>\n</tr>";
+ echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $loc . "\n</td>\n<td>\n" . $start . "\n</td>\n<td>\n" . $status . "\n</td>\n</tr>";
 }
 $stmt->close();
 ?>
