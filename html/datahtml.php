@@ -51,20 +51,21 @@ $stmt->close();
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Position</th>
+				<th>Location</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position FROM employee_tbl INNER JOIN isEmployee ON employee_tbl.empid=isEmployee.eid"))){
+if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position, gym.locationName FROM employee_tbl INNER JOIN isEmployee ON employee_tbl.empid=isEmployee.eid INNER JOIN gym ON gym.gymid=isEmployee.gid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
-if(!$stmt->bind_result($id, $fname, $lname, $pos)){
+if(!$stmt->bind_result($id, $fname, $lname, $pos, $loc)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
- echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $pos . "\n</td>\n</tr>";
+ echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n<td>\n" . $pos . "\n</td>\n<td>\n" . $loc . "\n</td>\n</tr>";
 }
 $stmt->close();
 ?>
