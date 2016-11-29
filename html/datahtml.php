@@ -55,7 +55,7 @@ $stmt->close();
 				<th>Start Date</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position, gym.locationName, isEmployee.startdate FROM employee_tbl INNER JOIN isEmployee ON employee_tbl.empid=isEmployee.eid INNER JOIN gym ON gym.gymid=isEmployee.gid"))){
+if(!($stmt = $mysqli->prepare("SELECT employee_tbl.empid, employee_tbl.fname, employee_tbl.lname, isEmployee.position, gym.locationName, isEmployee.startdate FROM employee_tbl LEFT JOIN isEmployee ON employee_tbl.empid=isEmployee.eid LEFT JOIN gym ON gym.gymid=isEmployee.gid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
@@ -120,7 +120,7 @@ $stmt->close();
 				<th>Membership Status</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT member_tbl.memberid, member_tbl.fname, member_tbl.lname, gym.locationName, isMember.startdate, isMember.activeMember FROM member_tbl INNER JOIN isMember ON member_tbl.memberid=isMember.mid INNER JOIN gym ON isMember.gid=gym.gymid"))){
+if(!($stmt = $mysqli->prepare("SELECT member_tbl.memberid, member_tbl.fname, member_tbl.lname, gym.locationName, isMember.startdate, isMember.activeMember FROM member_tbl LEFT JOIN isMember ON member_tbl.memberid=isMember.mid LEFT JOIN gym ON isMember.gid=gym.gymid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
