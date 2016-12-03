@@ -7,11 +7,11 @@ if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 
-if (!($stmt = $mysqli->prepare("INSERT INTO gym(locationName, zipCode) VALUES (?,?)"))) {
+if (!($stmt = $mysqli->prepare("INSERT INTO member_tbl(fname, lname, phonenum) VALUES (?,?,?)"))) {
 	echo "Prepare failed: " . $stmt->errno . " " . $stmt->error;
 }
 
-if (!($stmt->bind_param("si",$_POST['GCity'],$_POST['GZip']))) {
+if (!($stmt->bind_param("sss",$_POST['FName'],$_POST['LName'],$_POST['PNum']))) {
 	echo "Bind failed: "  . $stmt->errno . " " . $stmt->error;
 }
 

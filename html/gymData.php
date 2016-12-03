@@ -8,10 +8,12 @@ if($mysqli->connect_errno){
 	}
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+<!DOCTYPE html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<title>Gym Data</title>
+	</head>
 	<body>
 		<h1>Gym Data</h1>
 
@@ -20,14 +22,14 @@ if($mysqli->connect_errno){
 			<form action="addGym.php" method="post">
 				<fieldset>
 					<legend>Location Info</legend>
-					<p>City <input type="text" name="GCity"></p>
-					<p>Zip Code <input type="number" name="GZip"></p>
+					<p>City <input type="text" name="GCity" placeholder="Orange, CA"></p>
+					<p>Zip Code <input type="number" name="GZip" placeholder="12345"></p>
 				</fieldset>
-				<input type="input" name="Add" value="Add Gym Data">
+				<input type="submit" name="Add" value="Add Gym Data">
 			</form>
 		</div>
 
-	</br>
-	<p><a href="index.html">Home</a></p>
+		</br>
+		<p><a href="index.html">Home</a></p>
 	</body>
 </html>
