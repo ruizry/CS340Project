@@ -21,8 +21,8 @@ if($mysqli->connect_errno){
 			
 			<fieldset>
 				<legend>Employee Name</legend>
-				<p>First Name: <input type="text" name="FName"></p>
-				<p>Last Name: <input type="text" name="LName"></p>
+				<p>First Name: <input type="text" name="FName" placeholder="John"></p>
+				<p>Last Name: <input type="text" name="LName" placeholder="Smith"></p>
 			</fieldset>
 
 			<input type="submit" name="Add" value="Add Employee Data">
@@ -82,7 +82,7 @@ $stmt->close();
 
 			<fieldset>
 				<legend>Employee Name</legend>
-				<p>Position: <input type="text" name="position"></p>
+				<p>Position: <input type="text" name="position" placeholder="Trainer"></p>
 			</fieldset>
 			
 			<input type="submit" name="Add" value="Add Employee Data">
