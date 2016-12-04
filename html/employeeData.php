@@ -54,7 +54,7 @@ if(!$stmt->bind_result($id, $name)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $id . ' "> ' . $name . '</option>\n';
+	echo '<option value=" '. $id . ' "> ' . $name . ' - ID: ' . $id . '</option>\n';
 }
 $stmt->close();
 ?>
@@ -77,7 +77,7 @@ if(!$stmt->bind_result($gid, $locname)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $gid . ' "> ' . $locname . '</option>\n';
+	echo '<option value=" '. $gid . ' "> ' . $locname . ' - ID: ' . $gid . '</option>\n';
 }
 $stmt->close();
 ?>
@@ -113,7 +113,7 @@ if(!$stmt->bind_result($id2, $name2)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $id2 . ' "> ' . $name2 . '</option>\n';
+	echo '<option value=" '. $id2 . ' "> ' . $name2 . ' - ID: ' . $id2 . '</option>\n';
 }
 $stmt->close();
 ?>
@@ -136,7 +136,7 @@ if(!$stmt->bind_result($cid, $cname)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $cid . ' "> ' . $cname . '</option>\n';
+	echo '<option value=" '. $cid . ' "> ' . $cname . ' - ID: ' . $cid . '</option>\n';
 }
 $stmt->close();
 ?>

@@ -35,7 +35,7 @@ if(!$stmt->bind_result($eid, $name)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $eid . ' "> ' . $name . '</option>\n';
+	echo '<option value=" '. $eid . ' "> ' . $name . ' - ID: ' . $eid . '</option>\n';
 }
 $stmt->close();
 ?>

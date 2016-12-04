@@ -51,7 +51,7 @@ if(!$stmt->bind_result($id, $name)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $id . ' "> ' . $name . '</option>\n';
+	echo '<option value=" '. $id . ' "> ' . $name . ' - ID: ' . $id . '</option>\n';
 }
 $stmt->close();
 ?>
@@ -73,7 +73,7 @@ if(!$stmt->bind_result($gid, $locname)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
-	echo '<option value=" '. $gid . ' "> ' . $locname . '</option>\n';
+	echo '<option value=" '. $gid . ' "> ' . $locname . ' - ID: ' . $gid . '</option>\n';
 }
 $stmt->close();
 ?>
