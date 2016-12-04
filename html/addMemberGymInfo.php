@@ -21,3 +21,14 @@ if(!$stmt->execute()){
 	echo "Added " . $stmt->affected_rows . " rows to gym.";
 }
 ?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Member Query Status</title>
+	</head>
+	<body>
+		<p><a href="memberData.php">Back</a></p>
+	</body>
+</html>
