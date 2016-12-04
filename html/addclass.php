@@ -29,6 +29,7 @@ if(!$stmt->execute()){
 <body>
 	<div>
 		<p><a href="classData.php">Back</a></p>
+		<p><a href="datahtml.php">Home</a></p>
 	</div>
 </body>
 </html>

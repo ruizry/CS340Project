@@ -8,25 +8,21 @@ if($mysqli->connect_errno){
 	}
 ?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Class Data</title>
+		<title>Manage Gym Data</title>
 	</head>
-<body>
-	<h1>Class Data</h1>
-	<div>
-		<h3>Add Employee</h3>
-		
-		<form method="post" action="addclass.php">
+	<body>
+		<h1>Manage Gym Data</h1>
+		<div>
+			<h3>Delete Gym Location</h3>
+			<form action="deleteGym.php" method="post">
 
-			<fieldset>
-				<legend>Gym ID</legend>
-				<select name="GymID">
-
+				<fieldset>
+					<legend>Gym Location</legend>
+					<select name="GLocation">
 <?php
 if(!($stmt = $mysqli->prepare("SELECT gymid, locationName FROM gym"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
@@ -43,23 +39,12 @@ while($stmt->fetch()){
 }
 $stmt->close();
 ?>
-			</select>
-		</fieldset>
-			
-			<fieldset>
-				<p>Name: <input type="text" name="name" placeholder="REQUIRED" required></p>
-			</fieldset>
+					</select>
+				</fieldset>
+				<input type="submit" name="Delete" value="Delete Gym Data">
+			</form>
+		</div>
 
-			<fieldset>
-				<p>Day of the Week: <input type="text" name="day" placeholder="Monday"></p>
-				<p>Start Time: <input type="text" name="time" placeholder="1:00pm"></p>
-				<p>Duration (in minutes): <input type="text" name="duration" placeholder=30></p>
-				<p>Class Capacity: <input type="text" name="capacity" placeholder=15></p>
-			</fieldset>
-
-			<input type="submit" name="Add" value="Add Class">
-		</form>
-	</div>
 		</br>
 		<p><a href="datahtml.php">Home</a></p>
 	</body>

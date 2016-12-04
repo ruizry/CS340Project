@@ -2,7 +2,7 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -22,14 +22,14 @@ if($mysqli->connect_errno){
 			<form action="addGym.php" method="post">
 				<fieldset>
 					<legend>Location Info</legend>
-					<p>City <input type="text" name="GCity" placeholder="Orange, CA"></p>
-					<p>Zip Code <input type="number" name="GZip" placeholder="12345"></p>
+					<p>City <input type="text" name="GCity" placeholder="Orange, CA" required></p>
+					<p>Zip Code <input type="number" name="GZip" placeholder="12345" required></p>
 				</fieldset>
 				<input type="submit" name="Add" value="Add Gym Data">
 			</form>
 		</div>
 
 		</br>
-		<p><a href="index.html">Home</a></p>
+		<p><a href="datahtml.php">Home</a></p>
 	</body>
 </html>

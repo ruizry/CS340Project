@@ -2,7 +2,7 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -25,8 +25,8 @@ if($mysqli->connect_errno){
 			<form action="addMemberInfo.php" method="post">
 				<fieldset>
 					<legend>Personal Member Info</legend>
-					<p>First Name <input type="text" name="FName" placeholder="John"></p>
-					<p>Last Name <input type="text" name="LName" placeholder="Smith"></p>
+					<p>First Name <input type="text" name="FName" placeholder="John" required></p>
+					<p>Last Name <input type="text" name="LName" placeholder="Smith" required></p>
 					<p>Phone Number <input type="text" name="PNum" placeholder="123456789"></p>
 				</fieldset>
 				<input type="submit" name="InfoAdd" value="Add Member Info">
@@ -82,13 +82,18 @@ $stmt->close();
 				<fieldset>
 					<legend>Gym Membership Info</legend>
 					<p>Start Date <input type="date" name="SDate" placeholder="YYYY-MM-DD"></p>
-					<p>Active Member <input type="number" name="MStatus" placeholder="1 = yes 0 = no"></p>
+					<fieldset><legend>Member</legend>
+						<select name="MStatus">
+						<option value="0">No</option>
+						<option value="1">Yes</option>
+					    </select>
+					</fieldset>
 				</fieldset>
 				<input type="submit" name="GymInfoAdd" value="Add Gym Membership Info">
 			</form>
 		</div>
 
 		</br>
-		<p><a href="index.html">Home</a></p>
+		<p><a href="datahtml.php">Home</a></p>
 	</body>
 </html>

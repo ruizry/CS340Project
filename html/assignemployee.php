@@ -28,7 +28,8 @@ if(!$stmt->execute()){
 	</head>
 <body>
 	<div>
-		<p><a href="employeehtml.php">Back</a></p>
+		<p><a href="employeeData.php">Back</a></p>
+		<p><a href="datahtml.php">Home</a></p>
 	</div>
 </body>
 </html>
