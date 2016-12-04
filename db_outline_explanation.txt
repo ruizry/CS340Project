@@ -1,0 +1,41 @@
+Database Outline Explanation
+
+The database works on the premise of being able to add and delete data.  This adheres
+to the idea that the database serves to manage the people that are part of the gym
+franchise, whether it be employees or members.
+
+Relationships
+
+Since this database refers to a Gym franchise, then we must have a Gym entity that
+represents the locations of all of the gyms that are part of the franchise.  Next,
+we have the employees that work for the gym, and they form a separate entity.  The
+employees and the gym are connected by the gym location, which would be set by the
+ID of that particular gym.  It is important to note that employees may work for
+different gym locations and the relationship is found in a separate table isEmployee.
+
+Next, we have the members of the Gym.  This would be denoted by the Member entity.
+The members are associated with a Gym through the isMember relationship, which links
+a member to the gym through the member ID and gym ID.  Many members can be part of the
+same gym and members can be part of many gyms.  This is a many-to-many relationship.
+
+A Gym may also offer workout classes.  This is denoted by the Class relationship and
+is a one-to-many relationship.
+
+A member may take many workout classes at once.  A class may have one or more students.
+This is a many-to-many relationship.
+
+Constraints
+
+If we modify data, such as deleting data, we need to make sure that rows in other
+tables will also deleted appropriately.
+
+If a gym location is deleted, then all the members, employees and workout classes
+will be deleted with that particular gym ID reference.  This will be done by cascading
+the changes through its references.
+
+If an employee is deleted, then the appropriate rows will need to be deleted from any
+of the classes that they have taught as well as being deleted from the appropriate
+gym location.  This will be done by cascading any changes through its references.
+
+If a member is deleted, then they will be deleted from the appropriate workout class
+roster and gym location.  This will be done by cascading the changes through its reference.

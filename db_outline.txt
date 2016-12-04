@@ -1,0 +1,14 @@
+Outline
+
+The database represents the collection of data for a Gym franchise.  The data is
+intended to track the people in the gym, be it employees or members.  We are able
+to track who works at the gym, what position they hold, and if they teach one of
+the workout classes that the gym has at one of its many locations.
+
+This database would theoretically allow Gym employees to quickly add and remove
+other employees (something maybe a hiring manager might do) and assign trainers some
+classes to teach.  On the member side of things, this would allow the registration
+of new members to the Gym and also be able to see if they are an active member.
+What makes this a flexible tool for our theoretical users is that you are able to
+see data across multiple locations and not just one, allowing you to see a bigger
+picture of the people structure of the gym franchise.

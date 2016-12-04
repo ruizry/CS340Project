@@ -2,7 +2,8 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+//$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -20,9 +21,9 @@ if($mysqli->connect_errno){
 	<h1>Employee Data</h1>
 	<div>
 		<h3>Add Employee</h3>
-		
+
 		<form method="post" action="addemployee.php">
-			
+
 			<fieldset>
 				<legend>Employee Name</legend>
 				<p>First Name: <input type="text" name="FName" placeholder="John" required></p>
@@ -35,9 +36,9 @@ if($mysqli->connect_errno){
 
 	<div>
 		<h3>Assign Position to An Employee</h3>
-		
+
 		<form method="post" action="assignemployee.php">
-			
+
 			<fieldset>
 				<legend>Select Employee</legend>
 				<select name="EmployeeID">
@@ -87,16 +88,16 @@ $stmt->close();
 			<fieldset>
 				<p>Position: <input type="text" name="position" placeholder="Trainer"></p>
 			</fieldset>
-			
+
 			<input type="submit" name="Add" value="Add Employee Data">
 		</form>
 	</div>
 
 	<div>
 		<h3>Assign A Class to An Employee</h3>
-		
+
 		<form method="post" action="assignempclass.php">
-			
+
 			<fieldset>
 				<legend>Select Employee</legend>
 				<select name="EmpID">
@@ -142,11 +143,11 @@ $stmt->close();
 ?>
 			</select>
 		</fieldset>
-			
+
 			<input type="submit" name="AddC" value="Add This Instructor to the Class">
 		</form>
 	</div>
-		
+
 		</br>
 		<p><a href="datahtml.php">Home</a></p>
 	</body>
