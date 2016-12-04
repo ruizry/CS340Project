@@ -44,7 +44,8 @@ CREATE TABLE `class_tbl` (
   classTime varchar(255),
   durationMin int(11),
   capacity int(11),
-  FOREIGN KEY (gid) REFERENCES gym (gymid),
+  FOREIGN KEY (gid) REFERENCES gym (gymid)
+    ON DELETE CASCADE ON UPDATE CASCADE,
   PRIMARY KEY (classid)
 ) ENGINE=InnoDB;
 
@@ -53,8 +54,10 @@ CREATE TABLE `isStudent` (
   mid int(11) NOT NULL,
   cid int(11) NOT NULL,
   PRIMARY KEY  (mid, cid),
-  FOREIGN KEY (mid) REFERENCES member_tbl (memberid),
+  FOREIGN KEY (mid) REFERENCES member_tbl (memberid)
+    ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (cid) REFERENCES class_tbl (classid)
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE `isMember` (
@@ -68,6 +71,7 @@ CREATE TABLE `isMember` (
     ON DELETE CASCADE ON UPDATE CASCADE,
 
   FOREIGN KEY (gid) REFERENCES gym (gymid)
+    ON DELETE CASCADE ON UPDATE CASCADE
 
 ) ENGINE=InnoDB;
 
@@ -75,8 +79,10 @@ CREATE TABLE `isInstructor` (
   eid int(11) NOT NULL,
   cid int(11) NOT NULL,
   PRIMARY KEY  (eid, cid),
-  FOREIGN KEY (eid) REFERENCES employee_tbl (empid),
+  FOREIGN KEY (eid) REFERENCES employee_tbl (empid)
+    ON DELETE CASCADE ON UPDATE CASCADE,
   FOREIGN KEY (cid) REFERENCES class_tbl (classid)
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE `isEmployee` (
@@ -90,6 +96,7 @@ CREATE TABLE `isEmployee` (
     ON DELETE CASCADE ON UPDATE CASCADE,
 
   FOREIGN KEY (gid) REFERENCES gym (gymid)
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 
