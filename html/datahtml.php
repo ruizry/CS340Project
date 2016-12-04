@@ -12,6 +12,10 @@ if($mysqli->connect_errno){
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
+	<head>
+		<meta charset="utf-8">
+		<title>All Gym Data</title>
+	</head>
 <body>
 <h1>Data Tables</h1>
 <div>
@@ -89,7 +93,7 @@ $stmt->close();
 				<th>Instructor Last Name</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT class_tbl.classid, class_tbl.gid, class_tbl.name, class_tbl.classDay, class_tbl.classTime, class_tbl.durationMin, class_tbl.capacity, employee_tbl.fname, employee_tbl.lname FROM class_tbl INNER JOIN isInstructor ON class_tbl.classid=isInstructor.cid INNER JOIN employee_tbl ON employee_tbl.empid=isInstructor.eid"))){
+if(!($stmt = $mysqli->prepare("SELECT class_tbl.classid, class_tbl.gid, class_tbl.name, class_tbl.classDay, class_tbl.classTime, class_tbl.durationMin, class_tbl.capacity, employee_tbl.fname, employee_tbl.lname FROM class_tbl LEFT JOIN isInstructor ON class_tbl.classid=isInstructor.cid LEFT JOIN employee_tbl ON employee_tbl.empid=isInstructor.eid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
