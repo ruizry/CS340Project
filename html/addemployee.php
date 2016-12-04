@@ -1,4 +1,4 @@
-<?php
+?php
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
@@ -16,6 +16,15 @@ if(!($stmt->bind_param("ss",$_POST['FName'],$_POST['LName']))){
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $stmt->errno . " " . $stmt->error;
 } else {
-	echo "Added " . $stmt->affected_rows . " rows to employee_tbl.";
+	echo "Employee Added";
 }
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<body>
+	<div>
+		<p><a href="employeehtml.php">Back</a></p>
+	</div>
+</body>
+</html>
