@@ -144,7 +144,7 @@ $stmt->close();
 			</select>
 		</fieldset>
 			
-			<input type="submit" name="AddC" value="Add This Instructor to the Class">
+			<input type="submit" name="AddC" value="Add This Member to the Class">
 		</form>
 	</div>
 
