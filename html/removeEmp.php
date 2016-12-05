@@ -113,7 +113,7 @@ $stmt->close();
 					<select name="Gymid">
 
 <?php
-if (!($stmt = $mysqli->prepare("SELECT gid, locationName FROM isEmployee INNER JOIN gym ON gym.gymid=isEmployee.eid WHERE eid=?"))) {
+if (!($stmt = $mysqli->prepare("SELECT gid, locationName FROM isEmployee INNER JOIN gym ON gym.gymid=isEmployee.gid WHERE eid=?"))) {
 	echo "Prepare failed: " . $stmt->errno . " " . $stmt->error;
 }
 

@@ -2,7 +2,8 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+//$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -95,9 +96,9 @@ $stmt->close();
 
 	<div>
 		<h3>Sign Up Member For A Class</h3>
-		
+
 		<form method="post" action="assignmemclass.php">
-			
+
 			<fieldset>
 				<legend>Select Member</legend>
 				<select name="MemID">
@@ -143,7 +144,7 @@ $stmt->close();
 ?>
 			</select>
 		</fieldset>
-			
+
 			<input type="submit" name="AddC" value="Add This Member to the Class">
 		</form>
 	</div>

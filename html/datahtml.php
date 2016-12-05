@@ -2,7 +2,8 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+//$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -84,7 +85,7 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-		
+
 		</br>
 </div>
 
@@ -100,7 +101,7 @@ $stmt->close();
 
 </br>
 
-<div>		
+<div>
 		<table>
 			<tr>Class Table</tr>
 			<tr>
@@ -131,9 +132,9 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-		
+
 		</br>
-</div>	
+</div>
 
 <div>
 	<form action="classData.php">
@@ -147,7 +148,7 @@ $stmt->close();
 
 </br>
 
-<div>	
+<div>
 		<table>
 			<tr>Member Table</tr>
 			<tr>
@@ -175,7 +176,7 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-		
+
 		</br>
 </div>
 
