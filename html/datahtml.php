@@ -49,11 +49,11 @@ $stmt->close();
 </div>
 <div>
 	<form action="gymData.php">
-    	<input type="submit" value="Add a Gym" />
+    	<input type="submit" value="Add a New Gym Location" />
 	</form>
 	</br>
 	<form action="gymManage.php">
-    	<input type="submit" value="Delete a Gym" />
+    	<input type="submit" value="Delete an Existing Gym Location" />
 	</form>
 </div>
 </br>
@@ -91,7 +91,7 @@ $stmt->close();
 
 <div>
 	<form action="employeeData.php">
-    	<input type="submit" value="Add an Employee" />
+    	<input type="submit" value="Add or Assign an Employee" />
 	</form>
 	</br>
 	<form action="employeeManage.php">
@@ -138,11 +138,11 @@ $stmt->close();
 
 <div>
 	<form action="classData.php">
-    	<input type="submit" value="Add a Class" />
+    	<input type="submit" value="Add a New Class" />
 	</form>
 	</br>
 	<form action="classManage.php">
-    	<input type="submit" value="Delete a Class" />
+    	<input type="submit" value="Delete an Existing Class" />
 	</form>
 </div>
 
@@ -182,7 +182,7 @@ $stmt->close();
 
 <div>
 	<form action="memberData.php">
-    	<input type="submit" value="Add a Member" />
+    	<input type="submit" value="Add or Assign a New Member" />
 	</form>
 	</br>
 	<form action="memberManage.php">
