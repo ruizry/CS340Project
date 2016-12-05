@@ -53,7 +53,7 @@ $stmt->close();
 					<select name="Classid">
 
 <?php
-if (!($stmt = $mysqli->prepare("SELECT cid, name FROM isInstructor INNER JOIN class_tbl ON class_tbl.classid=isInstructor.eid WHERE eid=?"))) {
+if (!($stmt = $mysqli->prepare("SELECT cid, name FROM isInstructor INNER JOIN class_tbl ON class_tbl.classid=isInstructor.cid WHERE eid=?"))) {
 	echo "Prepare failed: " . $stmt->errno . " " . $stmt->error;
 }
 
