@@ -2,8 +2,7 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-//$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -49,11 +48,11 @@ $stmt->close();
 </div>
 <div>
 	<form action="gymData.php">
-    	<input type="submit" value="Add a New Gym Location" />
+    	<input type="submit" value="Add a Gym" />
 	</form>
 	</br>
 	<form action="gymManage.php">
-    	<input type="submit" value="Delete an Existing Gym Location" />
+    	<input type="submit" value="Delete a Gym" />
 	</form>
 </div>
 </br>
@@ -85,23 +84,23 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-
+		
 		</br>
 </div>
 
 <div>
 	<form action="employeeData.php">
-    	<input type="submit" value="Add or Assign an Employee" />
+    	<input type="submit" value="Add Employee/Employee Status" />
 	</form>
 	</br>
 	<form action="employeeManage.php">
-    	<input type="submit" value="Delete an Employee" />
+    	<input type="submit" value="Remove Employee/Employee Status" />
 	</form>
 </div>
 
 </br>
 
-<div>
+<div>		
 		<table>
 			<tr>Class Table</tr>
 			<tr>
@@ -132,23 +131,23 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-
+		
 		</br>
-</div>
+</div>	
 
 <div>
 	<form action="classData.php">
-    	<input type="submit" value="Add a New Class" />
+    	<input type="submit" value="Add a Class" />
 	</form>
 	</br>
 	<form action="classManage.php">
-    	<input type="submit" value="Delete an Existing Class" />
+    	<input type="submit" value="Delete a Class" />
 	</form>
 </div>
 
 </br>
 
-<div>
+<div>	
 		<table>
 			<tr>Member Table</tr>
 			<tr>
@@ -176,17 +175,17 @@ while($stmt->fetch()){
 $stmt->close();
 ?>
 		</table>
-
+		
 		</br>
 </div>
 
 <div>
 	<form action="memberData.php">
-    	<input type="submit" value="Add or Assign a New Member" />
+    	<input type="submit" value="Add Member/Member Status" />
 	</form>
 	</br>
 	<form action="memberManage.php">
-    	<input type="submit" value="Delete a Member" />
+    	<input type="submit" value="Remove Member/Member Status" />
 	</form>
 </div>
 
