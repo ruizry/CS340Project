@@ -24,6 +24,9 @@ is a one-to-many relationship.
 A member may take many workout classes at once.  A class may have one or more students.
 This is a many-to-many relationship.
 
+An employee may work at many gyms.  An employee may be an instructor for many classes
+at any gym.  This is a man-to-many relationship between gyms and employees.
+
 Constraints
 
 If we modify data, such as deleting data, we need to make sure that rows in other
