@@ -20,7 +20,7 @@ if($mysqli->connect_errno){
 <body>
 	<h1>Class Data</h1>
 	<div>
-		<h3>Add Employee</h3>
+		<h3>Add Class</h3>
 
 		<form method="post" action="addclass.php">
 
