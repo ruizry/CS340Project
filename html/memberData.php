@@ -2,8 +2,7 @@
 //Turn on error reporting
 ini_set('display_errors', 'On');
 //Connects to the database
-//$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
-$mysqli = new mysqli("oniddb.cws.oregonstate.edu","sanchjoh-db","pb3bG0PgvCuxtXbK","sanchjoh-db");
+$mysqli = new mysqli("oniddb.cws.oregonstate.edu","ruizry-db","WeUJO0bUJKhJstCn","ruizry-db");
 if($mysqli->connect_errno){
 	echo "Connection error " . $mysqli->connect_errno . " " . $mysqli->connect_error;
 	}
@@ -93,6 +92,61 @@ $stmt->close();
 				<input type="submit" name="GymInfoAdd" value="Add Gym Membership Info">
 			</form>
 		</div>
+
+	<div>
+		<h3>Sign Up Member For A Class</h3>
+		
+		<form method="post" action="assignmemclass.php">
+			
+			<fieldset>
+				<legend>Select Member</legend>
+				<select name="MemID">
+
+<?php
+if(!($stmt = $mysqli->prepare("SELECT memberid, fname FROM member_tbl"))){
+	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+}
+
+if(!$stmt->execute()){
+	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+if(!$stmt->bind_result($id2, $name2)){
+	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+while($stmt->fetch()){
+	echo '<option value=" '. $id2 . ' "> ' . $name2 . ' - ID: ' . $id2 . '</option>\n';
+}
+$stmt->close();
+?>
+			</select>
+		</fieldset>
+
+			<fieldset>
+				<legend>Select Class</legend>
+				<select name="ClassID">
+
+<?php
+if(!($stmt = $mysqli->prepare("SELECT classid, name FROM class_tbl"))){
+	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
+}
+
+if(!$stmt->execute()){
+	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+if(!$stmt->bind_result($cid, $cname)){
+	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
+}
+while($stmt->fetch()){
+	echo '<option value=" '. $cid . ' "> ' . $cname . ' - ID: ' . $cid . '</option>\n';
+}
+$stmt->close();
+?>
+			</select>
+		</fieldset>
+			
+			<input type="submit" name="AddC" value="Add This Instructor to the Class">
+		</form>
+	</div>
 
 		</br>
 		<p><a href="datahtml.php">Home</a></p>
