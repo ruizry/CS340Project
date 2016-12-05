@@ -144,6 +144,7 @@ $stmt->close();
 	<form action="classManage.php">
     	<input type="submit" value="Delete a Class" />
 	</form>
+	<a href="viewClassRoster.php"><input type="button" name="ClassRoster" value="View Class Rosters"></a>
 </div>
 
 </br>

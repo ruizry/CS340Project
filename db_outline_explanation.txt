@@ -30,12 +30,15 @@ If we modify data, such as deleting data, we need to make sure that rows in othe
 tables will also deleted appropriately.
 
 If a gym location is deleted, then all the members, employees and workout classes
-will be deleted with that particular gym ID reference.  This will be done by cascading
-the changes through its references.
+expressed in the relationship will be deleted from the relationship tables.
 
 If an employee is deleted, then the appropriate rows will need to be deleted from any
 of the classes that they have taught as well as being deleted from the appropriate
-gym location.  This will be done by cascading any changes through its references.
+gym location (relationship table).  This will be done by cascading any changes through
+its references.
 
 If a member is deleted, then they will be deleted from the appropriate workout class
 roster and gym location.  This will be done by cascading the changes through its reference.
+
+If a class is deleted, then only the relationship is deleted, the employees and
+members stay intact.
