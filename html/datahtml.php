@@ -101,7 +101,7 @@ $stmt->close();
 
 </br>
 
-<div>		
+<div>
 		<table>
 			<tr>Class Table</tr>
 			<tr>
@@ -190,6 +190,7 @@ $stmt->close();
 	<form action="memberManage.php">
     	<input type="submit" value="Remove Member/Member Status" />
 	</form>
+	<a href="filterMembersLanding.php"><input type="button" name="FMemberLand" value="Filter Members"></a>
 </div>
 
 </br>
