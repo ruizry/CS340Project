@@ -101,7 +101,7 @@ $stmt->close();
 
 </br>
 
-<div>
+<div>		
 		<table>
 			<tr>Class Table</tr>
 			<tr>
@@ -112,22 +112,23 @@ $stmt->close();
 				<th>Time</th>
 				<th>Duration</th>
 				<th>Capacity</th>
+				<th>Class Size</th>
 				<th>Instructor First Name</th>
 				<th>Instructor Last Name</th>
 			</tr>
 <?php
-if(!($stmt = $mysqli->prepare("SELECT class_tbl.classid, class_tbl.gid, class_tbl.name, class_tbl.classDay, class_tbl.classTime, class_tbl.durationMin, class_tbl.capacity, employee_tbl.fname, employee_tbl.lname FROM class_tbl LEFT JOIN isInstructor ON class_tbl.classid=isInstructor.cid LEFT JOIN employee_tbl ON employee_tbl.empid=isInstructor.eid"))){
+if(!($stmt = $mysqli->prepare("SELECT class_tbl.classid, class_tbl.gid, class_tbl.name, class_tbl.classDay, class_tbl.classTime, class_tbl.durationMin, class_tbl.capacity, employee_tbl.fname, employee_tbl.lname, COUNT(isStudent.mid) AS 'StudentCount' FROM isStudent INNER JOIN class_tbl ON isStudent.cid=class_tbl.classid LEFT JOIN isInstructor ON class_tbl.classid=isInstructor.cid LEFT JOIN employee_tbl ON employee_tbl.empid=isInstructor.eid GROUP BY class_tbl.classid"))){
 	echo "Prepare failed: "  . $stmt->errno . " " . $stmt->error;
 }
 
 if(!$stmt->execute()){
 	echo "Execute failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
-if(!$stmt->bind_result($id, $gid, $name, $days, $time, $dur, $cap, $fname, $lname)){
+if(!$stmt->bind_result($id, $gid, $name, $days, $time, $dur, $cap, $fname, $lname, $count)){
 	echo "Bind failed: "  . $mysqli->connect_errno . " " . $mysqli->connect_error;
 }
 while($stmt->fetch()){
- echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $gid . "\n</td>\n<td>\n" . $name . "\n</td>\n<td>\n" . $days . "\n</td>\n<td>\n" . $time . "\n</td>\n<td>\n" . $dur . "\n</td>\n<td>\n" . $cap . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n</tr>";
+ echo "<tr>\n<td>\n" . $id . "\n</td>\n<td>\n" . $gid . "\n</td>\n<td>\n" . $name . "\n</td>\n<td>\n" . $days . "\n</td>\n<td>\n" . $time . "\n</td>\n<td>\n" . $dur . "\n</td>\n<td>\n" . $cap . "\n</td>\n<td>\n" . $count . "\n</td>\n<td>\n" . $fname . "\n</td>\n<td>\n" . $lname . "\n</td>\n</tr>";
 }
 $stmt->close();
 ?>
